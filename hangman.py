@@ -1,4 +1,4 @@
-words = [ "cat", "dog", "tea"]
+words = [ "cat", "dog", "tea", "rabbit", "python",]
 
 import random
 import time
@@ -44,5 +44,7 @@ while count < len(gameWord):
         if compChoice[i] == userInput:
             gameWord[i] = userInput
             count = count + 1
+    print(" ".join(gameWord))
 
-print(" ".join(gameWord))
+if count == len(gameWord):
+    print("congratulations! you won the game")
