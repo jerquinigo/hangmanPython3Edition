@@ -1,4 +1,4 @@
-words = [ "cat", "dog",]
+words = [ "cat", "dog", "tea"]
 
 import random
 import time
@@ -15,7 +15,8 @@ def split(word):
     return newList
 
 gameWord = split(compChoice)
-print(type(gameWord))
+print(gameWord, "the current game word")
+
 
 # this turns the list into a string, but since string are not mutable directly, i will continue to work using list
 #gameWord = ''.join(map(str, gameWord))
@@ -26,7 +27,22 @@ print(type(gameWord))
 for i in range (len(gameWord)):
     gameWord[i] = "_"
 
-print(gameWord, "after the loop ")
     
 
-#print(" ".join(gameWord))
+# turns the list back into a string
+print(" ".join(gameWord))
+
+count = 0
+
+while count < len(gameWord):
+    userInput = input("please enter a letter: ")
+    userInput = userInput.lower()
+    print(userInput, "lowered the input")
+    print(count, "the current count")
+
+    for i in range(len(compChoice)):
+        if compChoice[i] == userInput:
+            gameWord[i] = userInput
+            count = count + 1
+
+print(" ".join(gameWord))
