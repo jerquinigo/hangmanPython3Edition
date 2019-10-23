@@ -1,33 +1,32 @@
 words = [ "cat", "dog",]
 
 import random
+import time
 compChoice = random.choice(words)
 
 gameTries = 5
+guesses = ""
+
 
 def split(word):
-    newList = [];
+    newList = []
     for char in word:
         newList.append(char)
     return newList
 
 gameWord = split(compChoice)
-print(gameWord)
+print(type(gameWord))
 
-correctList = []
-wrongList = []
-print(len(gameWord))
-while gameTries != 0 or len(correctList) - 1 == len(gameWord):
-    userInput = input("enter your character ")
-    print(userInput, "the input")
-    for item in gameWord:
-        if(userInput == item):
-            correctList.append(userInput)
-            print(correctList)
-            print(len(correctList))
-        else:
-            gameTries = gameTries - 1
+# this turns the list into a string, but since string are not mutable directly, i will continue to work using list
+#gameWord = ''.join(map(str, gameWord))
+#print(gameWord, "the new game word")
+# end of list to string conversion.
 
 
-print(correctList, "in the list")
+for i in range (len(gameWord)):
+    gameWord[i] = "_"
+
+print(gameWord, "after the loop ")
     
+
+#print(" ".join(gameWord))
