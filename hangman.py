@@ -1,8 +1,9 @@
-words = [ "cat", "dog", "tea", "rabbit", "python",]
+# old game logic. Player two inputs their words to play
+# words = [ "cat", "dog", "tea", "rabbit", "python",]
 
-import random
-import time
-compChoice = random.choice(words)
+# import random
+# import time
+# compChoice = random.choice(words)
 
 gameTries = 5
 guesses = ""
@@ -36,18 +37,32 @@ for i in range (len(gameWord)):
 print(" ".join(gameWord))
 
 count = 0
+losingCount = 0
 
-while count < len(gameWord):
+newSet = set(userWord)
+
+while count < len(gameWord) and losingCount < 5:
     userInput = input("please enter a letter: ")
     userInput = userInput.lower()
     print(userInput, "lowered the input")
     print(count, "the current count")
 
-    for i in range(len(userWord)):
-        if userWord[i] == userInput:
-            gameWord[i] = userInput
-            count = count + 1
-    print(" ".join(gameWord))
+    if userInput in newSet:
+        for i in range(len(userWord)):
+            if userWord[i] == userInput:
+                gameWord[i] = userInput
+                count = count + 1
+                print(" ".join(gameWord))
+
+    else: 
+         print(userInput, "the user input")
+         print("not in ")
+         losingCount = losingCount + 1
+         print(losingCount, "loser")
+
 
 if count == len(gameWord):
     print("congratulations! you won the game")
+if(losingCount == 5):
+    print("sorry, you lost the game, try again")
+
