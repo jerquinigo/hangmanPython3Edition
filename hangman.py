@@ -8,13 +8,16 @@ gameTries = 5
 guesses = ""
 
 
+userWordInput = input("please enter a word: ")
+userWord = userWordInput.lower()
+
 def split(word):
     newList = []
     for char in word:
         newList.append(char)
     return newList
 
-gameWord = split(compChoice)
+gameWord = split(userWord)
 print(gameWord, "the current game word")
 
 
@@ -40,8 +43,8 @@ while count < len(gameWord):
     print(userInput, "lowered the input")
     print(count, "the current count")
 
-    for i in range(len(compChoice)):
-        if compChoice[i] == userInput:
+    for i in range(len(userWord)):
+        if userWord[i] == userInput:
             gameWord[i] = userInput
             count = count + 1
     print(" ".join(gameWord))
