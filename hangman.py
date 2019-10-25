@@ -8,6 +8,16 @@
 gameTries = 5
 guesses = ""
 
+print("""
+ _                                             
+| |                                            
+| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  
+| '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_ \ 
+| | | | (_| | | | | (_| | | | | | | (_| | | | |
+|_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
+                    __/ |                      
+                   |___/    
+""")
 
 userWordInput = input("please enter a word: ")
 userWord = userWordInput.lower()
@@ -41,6 +51,9 @@ losingCount = 0
 
 newSet = set(userWord)
 
+
+
+presentGameWord = 0
 while count < len(gameWord) and losingCount < 5:
     userInput = input("please enter a letter: ")
     userInput = userInput.lower()
@@ -52,7 +65,8 @@ while count < len(gameWord) and losingCount < 5:
             if userWord[i] == userInput:
                 gameWord[i] = userInput
                 count = count + 1
-                print(" ".join(gameWord))
+                presentGameWord =" ".join(gameWord)
+
 
     else: 
          print(userInput, "the user input")
@@ -60,9 +74,85 @@ while count < len(gameWord) and losingCount < 5:
          losingCount = losingCount + 1
          print(losingCount, "loser")
 
+    if losingCount == 0:
+     print(presentGameWord,""" 
+    _________
+    |/        
+    |              
+    |          
+    |                 
+    |               
+    |                   
+    |___ 
+    """)
+
+    if losingCount == 1:
+        print(presentGameWord,"""
+     _________       
+    |/   |              
+    |   (_)
+    |                         
+    |                       
+    |                         
+    |                          
+    |___  
+        """)
+
+    if losingCount == 2:
+        print(presentGameWord, """
+     ________               
+    |/   |                   
+    |   (_)                  
+    |    |                     
+    |    |                    
+    |                           
+    |                            
+    |___  
+        """)
+
+    if losingCount == 3:
+        print(presentGameWord, """
+    _________              
+    |/   |                     
+    |   (_)                     
+    |   /|\                    
+    |    |                       
+    |                             
+    |                            
+    |___ 
+        """)
+
+    if losingCount == 4:
+        print(presentGameWord, """
+     ________                   
+    |/   |                         
+    |   (_)                      
+    |   /|\                             
+    |    |                          
+    |   /                            
+    |                                  
+    |___ 
+        """)
+
+    if losingCount == 5:
+        print(presentGameWord, """
+     ________
+    |/   |     
+    |   (_)    
+    |   /|\           
+    |    |        
+    |   / \        
+    |               
+    |___  
+        """)
+    print(presentGameWord)
+
 
 if count == len(gameWord):
     print("congratulations! you won the game")
 if(losingCount == 5):
     print("sorry, you lost the game, try again")
+
+
+
 
